@@ -89,3 +89,27 @@ void trigger_high(void)
     gpio_set_pin_high(PIO_PA7_IDX);
     gpio_configure_pin(PIO_PA7_IDX, PIO_OUTPUT_1 | PIO_DEFAULT);
 }
+
+void led_error(unsigned int status)
+{
+	if(status==1){
+        gpio_set_pin_high(PIO_PA14_IDX);
+        gpio_configure_pin(PIO_PA14_IDX, PIO_OUTPUT_1 | PIO_DEFAULT);
+    }
+    else{
+        gpio_set_pin_low(PIO_PA14_IDX);
+        gpio_configure_pin(PIO_PA14_IDX, PIO_OUTPUT_0 | PIO_DEFAULT);
+    }
+}
+
+void led_ok(unsigned int status)
+{
+	if(status==1){
+        gpio_set_pin_high(PIO_PA16_IDX);
+        gpio_configure_pin(PIO_PA16_IDX, PIO_OUTPUT_1 | PIO_DEFAULT);
+    }
+    else{
+        gpio_set_pin_low(PIO_PA16_IDX);
+        gpio_configure_pin(PIO_PA16_IDX, PIO_OUTPUT_0 | PIO_DEFAULT);
+    }
+}
